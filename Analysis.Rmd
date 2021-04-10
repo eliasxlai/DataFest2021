@@ -39,18 +39,24 @@ canada <- canada %>%
                       TAP_USE+COD_USE+HYD_USE+HYDM_USE+SUF_USE)
 ```
 #whether or not person has abused any drugs (yes = 1, no = 0)
-#not working!!!
+
 ```{r mutate_drug_nopres_yesorno}
 canada <- canada %>% 
-  mutate(drugnopres_yn = ifelse(FENT_NMU+BUP_NMU+MORPH_NMU+OXY_NMU+OXYM_NMU+
-                             TRAM_NMU+TAP_NMU+COD_NMU+HYD_NMU+HYDM_NMU+SUF_NMU 
-                             > 0, 1, 0))
+  mutate(drugnopres_yn = ifelse(rowSums(canada[,c("FENT_NMU","BUP_NMU","MORPH_NMU","OXY_NMU","OXYM_NMU","TRAM_NMU","TAP_NMU","COD_NMU","HYD_NMU","HYDM_NMU","SUF_NMU")], na.rm = TRUE)> 0, 1, 0))
 ```
 #counts the number of drugs that each person abuses and creates a new column
 ```{r mutate_drug_nopres_number}
 canada$drugnopres_num = rowSums(canada[,c("FENT_NMU","BUP_NMU","MORPH_NMU","OXY_NMU","OXYM_NMU","TRAM_NMU","TAP_NMU","COD_NMU","HYD_NMU","HYDM_NMU","SUF_NMU")], na.rm = TRUE)
 ```
 
+```{column for has mental disorder}
+#Ment_None
+```
+
+```{r mutate num_mental_disorders}
+canada <- canada %>% 
+  mutate(num_mental_disorders = rowSums(canada[,c("MENT_ANX","MENT_ADHD","MENT_AUT","MENT_BIP","MENT_BPD","MENT_DEP","MENT_EAT","MENT_OCD","MENT_PANIC","MENT_PPD","MENT_PTSD", "MENT_SCH", "MENT_OTH")], na.rm = TRUE))
+```
 
 ## References
 
