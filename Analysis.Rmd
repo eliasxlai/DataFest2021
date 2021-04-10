@@ -20,6 +20,10 @@ library(tidyverse)
 library(broom)
 ```
 
+```{r}
+canada <- read.csv("data/ca.csv")
+```
+
 ## References
 
 - Computing for the Social Sciences. "Logistic Regression." 
