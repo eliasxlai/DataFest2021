@@ -24,6 +24,35 @@ library(broom)
 canada <- read.csv("data/ca.csv")
 ```
 
+#### Adding columns based on drugs
+
+```{r mutate_drug_use_yesorno}
+canada <- canada %>% 
+  mutate(druguse_yn = ifelse(FENT_USE+BUP_USE+MORPH_USE+OXY_USE+OXYM_USE+
+                             TRAM_USE+TAP_USE+COD_USE+HYD_USE+HYDM_USE+SUF_USE 
+                             > 0, 1, 0))
+```
+
+```{r mutate_drug_use_number}
+canada <- canada %>% 
+  mutate(druguse_num = FENT_USE+BUP_USE+MORPH_USE+OXY_USE+OXYM_USE+TRAM_USE+
+                      TAP_USE+COD_USE+HYD_USE+HYDM_USE+SUF_USE)
+```
+
+```{r mutate_drug_nopres_yesorno}
+canada <- canada %>% 
+  mutate(drugnopres_yn = ifelse(FENT_NMU+BUP_NMU+MORPH_NMU+OXY_NMU+OXYM_NMU+
+                             TRAM_NMU+TAP_NMU+COD_NMU+HYD_NMU+HYDM_NMU+SUF_NMU 
+                             > 0, 1, 0))
+```
+
+```{r mutate_drug_nopres_number}
+canada <- canada %>% 
+  mutate(drugnopres_num = FENT_NMU+BUP_NMU+MORPH_NMU+OXY_NMU+OXYM_NMU+TRAM_NMU+
+                       TAP_NMU+COD_NMU+HYD_NMU+HYDM_NMU+SUF_NMU)
+```
+
+
 
 ## References
 
