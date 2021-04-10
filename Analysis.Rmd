@@ -54,6 +54,7 @@ canada$drugnopres_num = rowSums(canada[,c("FENT_NMU","BUP_NMU","MORPH_NMU","OXY_
 ```
 
 ```{r mutate num_mental_disorders}
+#column lists number of mental disorders that the user has 
 canada <- canada %>% 
   mutate(num_mental_disorders = rowSums(canada[,c("MENT_ANX","MENT_ADHD","MENT_AUT","MENT_BIP","MENT_BPD","MENT_DEP","MENT_EAT","MENT_OCD","MENT_PANIC","MENT_PPD","MENT_PTSD", "MENT_SCH", "MENT_OTH")], na.rm = TRUE))
 ```
