@@ -20,14 +20,7 @@ library(tidyverse)
 library(broom)
 ```
 
-```{r read_csv}
-canada <- read.csv("data/ca.csv")
-```
 
-```{r filter_columns_with_more_than_half_na}
-canada <- canada %>% 
-  select_if(.predicate=funs(sum(is.na(.)) <= 10007 / 2))
-```
 
 
 ## References
