@@ -20,7 +20,7 @@ library(tidyverse)
 library(broom)
 ```
 
-```{r}
+```{r read ca.csv}
 canada <- read.csv("data/ca.csv")
 ```
 
