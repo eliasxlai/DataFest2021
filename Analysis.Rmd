@@ -25,34 +25,32 @@ canada <- read.csv("data/ca.csv")
 ```
 
 #### Adding columns based on drugs
-
+#whether or not this person uses perscription drugs (1 = yes, 0 = no)
 ```{r mutate_drug_use_yesorno}
 canada <- canada %>% 
   mutate(druguse_yn = ifelse(FENT_USE+BUP_USE+MORPH_USE+OXY_USE+OXYM_USE+
                              TRAM_USE+TAP_USE+COD_USE+HYD_USE+HYDM_USE+SUF_USE 
                              > 0, 1, 0))
 ```
-
+#number of drugs the person uses 
 ```{r mutate_drug_use_number}
 canada <- canada %>% 
   mutate(druguse_num = FENT_USE+BUP_USE+MORPH_USE+OXY_USE+OXYM_USE+TRAM_USE+
                       TAP_USE+COD_USE+HYD_USE+HYDM_USE+SUF_USE)
 ```
-
+#whether or not person has abused any drugs (yes = 1, no = 0)
+#not working!!!
 ```{r mutate_drug_nopres_yesorno}
 canada <- canada %>% 
   mutate(drugnopres_yn = ifelse(FENT_NMU+BUP_NMU+MORPH_NMU+OXY_NMU+OXYM_NMU+
                              TRAM_NMU+TAP_NMU+COD_NMU+HYD_NMU+HYDM_NMU+SUF_NMU 
                              > 0, 1, 0))
 ```
-
+#counts the number of drugs that each person abuses and creates a new column
 ```{r mutate_drug_nopres_number}
 canada$drugnopres_num = rowSums(canada[,c("FENT_NMU","BUP_NMU","MORPH_NMU","OXY_NMU","OXYM_NMU","TRAM_NMU","TAP_NMU","COD_NMU","HYD_NMU","HYDM_NMU","SUF_NMU")], na.rm = TRUE)
 ```
 
-```{r mutate_drug_nopres_number}
-sum(is.na(canada$drugnopres_num))
-```
 
 ## References
 
