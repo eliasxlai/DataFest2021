@@ -1,0 +1,26 @@
+---
+title: "DataFest2021"
+author: "Elias Lai, Jordan McGilvery, Jason Gerber, Jason Shang"
+date: "04/09/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
+                      comment = "#>", highlight = TRUE, error = TRUE,
+                      fig.align = "center")
+```
+
+## Packages
+
+```{r packages}
+library(tidyverse)
+library(broom)
+```
+
+## References
+
+- Computing for the Social Sciences. "Logistic Regression." 
+  https://cfss.uchicago.edu/notes/logistic-regression/
