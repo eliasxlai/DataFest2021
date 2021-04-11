@@ -67,7 +67,7 @@ canada <- canada %>%
 
 ```{r plot_numtraumaticdisorders_vs_drugnopres_num}
 ggplot(data = canada, 
-       mapping = aes(x = num_traumatic_disorders, y = drugnopres_num)) + 
+       mapping = aes(x = num_mental_disorders, y = drugnopres_num)) + 
    geom_point() + 
    geom_smooth()
 ```
