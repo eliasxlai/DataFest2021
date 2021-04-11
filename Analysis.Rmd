@@ -65,6 +65,14 @@ canada <- canada %>%
   mutate(num_traumatic_disorders = rowSums(canada[,c("MENT_ANX","MENT_DEP","MENT_PANIC","MENT_PPD","MENT_PTSD", "MENT_SCH")], na.rm = TRUE))
 ```
 
+```{r plot_numtraumaticdisorders_vs_drugnopres_num}
+ggplot(data = canada, 
+       mapping = aes(x = num_traumatic_disorders, y = drugnopres_num)) + 
+   geom_point() + 
+   geom_smooth()
+```
+
+
 ## References
 
 - Computing for the Social Sciences. "Logistic Regression." 
